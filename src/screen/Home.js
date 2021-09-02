@@ -65,7 +65,7 @@ class Home extends Component {
 										borderBottomColor: '#000',
 									}}
 									onPress={() =>
-										this.props.navigation.navigation('Detail', {
+										this.props.navigation.navigate('Detail', {
 											idmovie: item.imdbID,
 										})
 									}>
