@@ -12,7 +12,7 @@ class Detailmovie extends Component{
     }
     ambilDetailData = () => {
         this.setState({loading: true})
-        fetch('http://www.omdbapi.com/?apikey=30580c3c&s=' + this.props.route.params.idmovie)
+        fetch('http://www.omdbapi.com/?apikey=30580c3c&i=' + this.props.route.params.idmovie)
             .then((response)=> response.json())
             .then((json) => this.setState({ detailMovie: json}, () => console.log(json)))
             .catch((err) => console.log(err))
@@ -29,7 +29,7 @@ class Detailmovie extends Component{
                     <View>
                         <Text>Title : {this.state.detailMovie.Title}</Text>
                         <Text>Year : {this.state.detailMovie.Year}</Text>
-                        <Text>Release : {this.state.detailMovie.Release}</Text>
+                        <Text>Release : {this.state.detailMovie.Released}</Text>
                     </View>
                 )}
             </View>
