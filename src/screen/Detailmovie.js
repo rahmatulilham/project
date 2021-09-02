@@ -24,15 +24,17 @@ class Detailmovie extends Component{
 
     render(){
         return (
-            <View>
-                {(this.state.loading == true) ? <ActivityIndicator size= 'large' color='red' /> : (
-                    <View>
-                        <Text>Title : {this.state.detailMovie.Title}</Text>
-                        <Text>Year : {this.state.detailMovie.Year}</Text>
-                        <Text>Release : {this.state.detailMovie.Released}</Text>
-                    </View>
-                )}
-            </View>
+          <View>
+            {this.state.loading == true ? (
+              <ActivityIndicator size="large" color="red" />
+            ) : (
+              <View>
+                <Text>Title : {this.state.detailMovie.Title}</Text>
+                <Text>Year : {this.state.detailMovie.Year}</Text>
+                <Text>Release : {this.state.detailMovie.Released}</Text>
+              </View>
+            )}
+          </View>
         );
     }
 }

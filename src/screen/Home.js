@@ -31,78 +31,78 @@ class Home extends Component {
 
 	render() {
 		return (
-			<View style={style.container}>
-				<StatusBar barStyle="light-content" backgroundColor="#3B185F" />
-				<View style={style.header}>
-					<Text style={style.textHeader}>IMDB Movie</Text>
-				</View>
-				<View style={style.content}>
-					<View style={style.input}>
-						<TextInput
-							style={style.TextInput}
-							placeholder="Search Movie"
-							onChangeText={value => this.setState({ searchData: value })}
-						/>
-						<TouchableOpacity
-							style={style.buttonSearch}
-							onPress={() => this.ambilData()}>
-							<Text style={style.textButton}>Cari</Text>
-						</TouchableOpacity>
-					</View>
-					<View style={style.FlatList}>
-						<FlatList
-							data={this.state.dataMovie}
-							keyExtractor={item => item.imdbID}
-							renderItem={({ item, Search }) => (
-								<TouchableOpacity
-									style={{
-										flex: 1,
-										flexDirection: 'row',
-										justifyContent: 'flex-start',
-										alignItems: 'flex-start',
-										marginVertical: 5,
-										borderBottomWidth: 1,
-										borderBottomColor: '#000',
-									}}
-									onPress={() =>
-										this.props.navigation.navigate('Detail', {
-											idmovie: item.imdbID,
-										})
-									}>
-									<View>
-										<Image
-											source={{ uri: item.Poster }}
-											style={{
-												width: 100,
-												height: 150,
-											}}
-										/>
-									</View>
-									<View
-										style={{
-											flex: 1,
-											flexWrap: 'nowrap',
-											paddingHorizontal: 10,
-										}}>
-										<Text
-											style={{
-												fontSize: 22,
-												fontWeight: 'bold',
-												textAlign: 'left',
-												marginBottom: 20,
-											}}>
-											{item.Title}
-										</Text>
-										<Text>Tahun : {item.Year}</Text>
-										<Text>Tipe : {item.Type}</Text>
-									</View>
-								</TouchableOpacity>
-							)}
-						/>
-					</View>
-				</View>
-			</View>
-		);
+      <View style={style.container}>
+        <StatusBar barStyle="light-content" backgroundColor="#3B185F" />
+        <View style={style.header}>
+          <Text style={style.textHeader}>IMDB Movie</Text>
+        </View>
+        <View style={style.content}>
+          <View style={style.input}>
+            <TextInput
+              style={style.TextInput}
+              placeholder="Search Movie"
+              onChangeText={value => this.setState({searchData: value})}
+            />
+            <TouchableOpacity
+              style={style.buttonSearch}
+              onPress={() => this.ambilData()}>
+              <Text style={style.textButton}>Cari</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={style.dataFlatlist}>
+            <FlatList
+              data={this.state.dataMovie}
+              keyExtractor={item => item.imdbID}
+              renderItem={({item, Search}) => (
+                <TouchableOpacity
+                  style={{
+                    flex: 1,
+                    flexDirection: 'row',
+                    justifyContent: 'flex-start',
+                    alignItems: 'flex-start',
+                    marginVertical: 5,
+                    borderBottomWidth: 1,
+                    borderBottomColor: '#000',
+                  }}
+                  onPress={() =>
+                    this.props.navigation.navigate('Detail', {
+                      idmovie: item.imdbID,
+                    })
+                  }>
+                  <View>
+                    <Image
+                      source={{uri: item.Poster}}
+                      style={{
+                        width: 100,
+                        height: 150,
+                      }}
+                    />
+                  </View>
+                  <View
+                    style={{
+                      flex: 1,
+                      flexWrap: 'nowrap',
+                      paddingHorizontal: 10,
+                    }}>
+                    <Text
+                      style={{
+                        fontSize: 22,
+                        fontWeight: 'bold',
+                        textAlign: 'left',
+                        marginBottom: 20,
+                      }}>
+                      {item.Title}
+                    </Text>
+                    <Text>Tahun : {item.Year}</Text>
+                    <Text>Tipe : {item.Type}</Text>
+                  </View>
+                </TouchableOpacity>
+              )}
+            />
+          </View>
+        </View>
+      </View>
+    );
 	}
 }
 
